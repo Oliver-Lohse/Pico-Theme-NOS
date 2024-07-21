@@ -1,0 +1,28 @@
+<!-- Hinweise zum Template: Das index-Template unterscheidet sich von den anderen index-Templates, da es auf der     -->
+<!-- überaus wichtigen Startseite einen Querschnitt über den gesamtem Blog anzeigen soll (Sticky, Kategorie,....     -->
+<!-- Innerhalb einer Kategorie zeigt das index-Template dann spezifischere Informationen des Ordners an, in dem sich -->
+<!-- der Leser gerade befindet.                                                                                      -->
+
+<!DOCTYPE html>
+<html>
+    {% include 'modules/html-head.twig' %}
+<body class="fs-5 bg-secondary text-light" style="background-image: url({{assets_url}}/{{config.theme_config.background_image.content}}); background-attachment: fixed; background-position: bottom; background-size: cover;">
+
+    {% include 'modules/heading-site-title.twig' %}
+
+    {% include 'modules/breadcrumb-navigation.twig' %}
+
+    {% include 'modules/sticky-posts.twig' %}
+
+    <div class="container py-5">
+        <article>
+        <h2>{{current_page.title}}</h2>
+        <p class="lead">{{current_page.description}}</p>
+        {{content}}
+        </article>
+    </div>
+
+    {% include 'modules/footer.twig' %}
+    
+</body>
+</html>

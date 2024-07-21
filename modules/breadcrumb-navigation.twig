@@ -1,0 +1,17 @@
+{#------------------------------------------------------------------------------------------------------#}
+{# Breadcrumb Nav                                                                                       #}
+{# --------------                                                                                       #}
+{# Baut die klassische Breadcrumb-Navigation auf, je Button, eine Stufe zurück.                         #}
+{#------------------------------------------------------------------------------------------------------#}
+
+<!-- Breadcrumb -->
+    <div class="container-fluid py-1" style="background: linear-gradient(120deg, #0d1d8c, #aa169e);">
+        <div class="container mb-2">
+            <a href="/" class="badge bg-secondary">home</a>
+            {% for path in current_page.id|split('/',-1) %}
+                {% set tmp = [tmp,path]|join('/') %}
+                <a href="{{tmp}}" class="badge bg-secondary">{{path}}</a>
+            {% endfor %}
+        </div>
+    </div>
+<!-- Breadcrumb -->

@@ -1,0 +1,44 @@
+{#------------------------------------------------------------------------------------------------------#}
+{# Sticky                                                                                               #}
+{# ------                                                                                               #}
+{# Zeigt alle Beiträge aus allen Ordnern und Unterordnern an, bei denen das Attribut 'Sticky: true'     #}
+{# gesetzt ist. Der 1. und 5. Post wird mit 6 breiter als 3 dargestellt, um das Erscheinungsbild etwas  #}
+{# aufzulockern. Die Anzeige von angepinnten Beiträgen erfolgt ausschließlich auf der Startseite,       #}
+{# jedoch nicht in Kategorien Der Wert für "size" kommt aus dem Array der "pico-theme.yml".             #}
+{#------------------------------------------------------------------------------------------------------#}
+
+<!-- Sticky Posts -->
+    {% if current_page.id|split('/')[0] == 'index' %}
+        <div class="container-fluid py-5 text-light" style="background-image: url({{assets_url}}/{{config.theme_config.background_image.sticky}}); background-attachment:fixed; background-position: center; background-size: cover;">
+            <div class="container g-0">
+
+                <p class="lead text-center fw-bold fs-1 text-light mb-5 opacity-50">Galerie</p>
+
+                <div class="row rounded">
+                {% for page in pages if page.title and not page.hidden and page.meta.Sticky %}
+
+                    {% set size     = config.theme_config.logo_weights[loop.index-1] %}
+                    {% set position = config.theme_config.logo_position[loop.index-1] %}
+
+                    <div class="col-sm-{{size}}" style="
+                        background-image:    url({{assets_url}}/{{config.theme_config.background_image.overlay}}), url({{assets_url}}/{{page.meta.logo}}); 
+                        background-position: {{ position }}; 
+                        background-size:     cover; 
+                        height:              300px;">
+                        
+                        <div class="p-4 text-light">
+                            <a href="{{ page.url }}" title="{{ page.title }}">
+                                <h2 class="mb-3 fs-4 fw-bold text-light opacity-75"> {{ page.title }} </h2>
+                            </a>
+                            <p class="opacity-50"> {{ page.description }} </p>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    {% endif %}
+<!-- Sticky Posts -->
