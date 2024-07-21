@@ -16,10 +16,10 @@ In der Datei `pico-theme.yml` können die folgenden exemplarischen Einstellungen
         sticky:           bg-1.jpg
         content:          bigcity-2.jpg
 
-`global_author` - ein globaler Autor, der für alle Beiträge angezeigt wird
-`logo_weights` - die Breite der Darstellung des Artikelbildes auf der Startseite (1 bis 12)
-`logo_position` - Ausrichtung des Bildes innerhalb des Containers (CSS Style)
-`background_image` - Angaben zum Teaser
-`overlay` - Überlagerung mit transparentem PNG (im Beispiel lila nach transparent)
-`sticky` - Hintergrundgrafik für das Sticky Area
-`content` - Hintergrundbild für Content Bereich
+- `global_author` ein globaler Autor, der für alle Beiträge angezeigt wird
+- `logo_weights` die Breite der Darstellung des Artikelbildes auf der Startseite (1 bis 12)
+- `logo_position` Ausrichtung des Bildes innerhalb des Containers (CSS Style)
+- `background_image` Angaben zum Teaser
+- `overlay` Überlagerung mit transparentem PNG (im Beispiel lila nach transparent)
+- `sticky` Hintergrundgrafik für das Sticky Area
+- `content` Hintergrundbild für Content Bereich
